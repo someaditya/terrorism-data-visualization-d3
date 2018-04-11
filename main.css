@@ -1,0 +1,45 @@
+h1 {
+font: bold italic 2em/1em "Times New Roman", "MS Serif", "New York", serif;
+margin: 0;
+padding: 0;
+color: #e7ce00;
+border-top: solid #e7ce00 medium;
+border-bottom: dotted #e7ce00 thin;
+width: 1400px;
+}
+
+h2 {
+font: bold italic 2em/1em "Times New Roman", "MS Serif", "New York", serif;
+margin: 0;
+padding: 0;
+color: #e7ce10;
+border-top: solid #e7ce00 medium;
+border-bottom: dotted #e7ce00 thin;
+width: 1400px;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis--x path {
+  display: none;
+}
+
+.group text {
+  font: 11px sans-serif;
+  pointer-events: none;
+}
+
+.group path {
+  stroke: #000;
+}
+
+path.chord {
+  stroke-width: .75;
+  fill-opacity: .75;
+}
