@@ -4,7 +4,7 @@
 <h1> Data Visualization on Global Terrorism Database using D3</h1> 
 <h2> Analysis of Terrorism in India</h2>
 <div id="myDropdown" class="dropdown-content">
-       <label>Select Time Period</label>
+       <label id= "label">Select Time Period</label>
              <select id = "myList">
              <option selected="">Please Select</option>
              <option value ="yr1">Terrorist Attacks in India under Janata Party Government (1977-1979)</option>
@@ -15,25 +15,29 @@
              <option value ="yr6">Terrorist Attacks in India under BJP Government (2014-2016)</option>
              
              </select>
+              <button id="showBars" onclick="showBars();">Show Data </button>
   </div>
-  <div id="myShow" class="dropdown-content"> <button id="showBars" onclick="showBars();">Show Data </button></div>
-
+  <div id="myShow" class="dropdown-content"></div>
+<label margin-top=100px>Terrorism Activities Heatmap</label>
 <div id="heatmap-canvas" style="width:1400px; height:720px; margin-left: 20px" ></div>
+<label>Terrorism Activities BarGraph</label>
+
 <div id="bargraph">
 <svg id="svg1" width="1400" height="720"></svg>
 </div>
-<div id=chorddiag>
-<svg width="960" height="500"></svg>
-</div>
+<label>Terrorism Activities Chord Diagram</label>
+
+
 <script src="http://d3js.org/d3.v4.min.js"></script>
-<script src="sankey.js"></script>
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src="http://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
-<script src="mapper.js "></script>
+<script src="http://vizjs.org/viz.v1.1.0.min.js"></script>
 <script src="index.js "></script>
+<script src="sankey.js "></script>
 <link rel="stylesheet" href="main.css">
-<footer>
+<footer align="center">
       <a href="https://github.com/someaditya/Terrorism-Data-Visualization">Project hosted on Github</a> 
+      <a href="https://www.kaggle.com/someadityamandal/terror-attacks-in-india-a-political-analysis">Python based Notebook on Kaggle</a> 
       <div id="cite"><b>*</b>Data source: <a href="http://www.start.umd.edu/gtd/">Global Terrorism Database</a></div>
 </footer>
