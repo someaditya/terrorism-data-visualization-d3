@@ -67,12 +67,11 @@ footer {
 	
 }
 
-.line {
-      fill: none;
-      stroke: steelblue;
-      stroke-width: 1.5px;
+.line{
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
 }
-
 .node rect {
   cursor: move;
   fill-opacity: .9;
