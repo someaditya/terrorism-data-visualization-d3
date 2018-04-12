@@ -16,6 +16,7 @@ var heat = L.heatLayer(0,{
 
 showHeatmap(1977,2016);
 bargraph(1977,2016);
+linechart()
 chorddiagram()
 sankeydiagram()
 
@@ -604,6 +605,70 @@ d3.select(self.frameElement).style("height", height+"px").style("width", width+"
 }
 
 
+function linechart()
+{
+
+
+var margin = {top: 20, right: 20, bottom: 30, left: 50},
+    width = 1400 - margin.left - margin.right,
+    height = 720 - margin.top - margin.bottom;
+
+// parse the date / time
+var parseTime = d3.timeParse("%d-%b-%y");
+
+// set the ranges
+var x = x = d3.scaleBand().rangeRound([0, width]).padding(0.1);
+var y = d3.scaleLinear().range([height, 0]);
+
+// define the line
+var valueline = d3.line()
+    .x(function(d) { return x(d.iyear); })
+    .y(function(d) { return y(d.nkill); });
+
+// append the svg obgect to the body of the page
+// appends a 'group' element to 'svg'
+// moves the 'group' element to the top left margin
+var svg2 = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Get the data
+d3.csv("http://localhost/datafinal.csv", function(error, data) {
+  if (error) throw error;
+
+  // format the data
+  data.forEach(function(d) {
+      //d.iyear = parseInt(d.iyear);
+      d.nkill = parseInt(d.nkill);
+      //console.log(d.nkill)
+  });
+  
+
+  // Scale the range of the data
+  x.domain(data.map(function(d) { return d.iyear; }));
+  y.domain([0, d3.max(data, function(d) { return d.nkill; })]);
+
+  // Add the valueline path.
+  svg2.append("path")
+      .data([data])
+      .attr("class", "line")
+      .attr("d", valueline);
+
+  // Add the X Axis
+  svg2.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+  // Add the Y Axis
+  svg2.append("g")
+      .call(d3.axisLeft(y));
+
+});
+
+}
 
 
 function sankeydiagram()
@@ -620,7 +685,7 @@ var formatNumber = d3.format(",.0f"),    // zero decimal places
     color = d3.schemeCategory20;
 
 // append the svg canvas to the page
-var svg = d3.select("#chart").append("svg")
+var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
