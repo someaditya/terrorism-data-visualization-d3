@@ -15,3 +15,4 @@ There are lot of tools available in the market like Tableu or Qlikview but D3 wa
 Heatmaps are an excellent visualization tool. So in this project the Leaflet.js and its corresponding Heatmap Library were used over Open Street Maps to achieve the desired results.In this project the first heatmap is created using all the Terrorist kills from 1977-2016, and it changes further with user inputs through the drop down.So, the user can really see how the pattern of Terrorist attacks changed over time throughout the span of India.
 Leaflet Heatmap Library https://github.com/Leaflet/Leaflet.heat
 
+![Yelp Logo](/image/terrorheat.png)
