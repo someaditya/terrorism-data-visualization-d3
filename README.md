@@ -1,4 +1,4 @@
-![Yelp Logo](/image/yelp_logo.png)# Terrorism Data Visualization using D3
+# Terrorism Data Visualization using D3
 Terrorism is a global menace in which thousands of people around globe lose their lives everyday, this project tries to visualize the countless terrorist attacks that occurred in India over the last 30 years co related with the Government Tenures.This project makes use of the Global Terrorism Database maintained by University of Maryland and D3, a Javascript Library created by Mike Bostock was used for the Visualization. Several visualization tools like Heatmap, Chord Diagram, Line Chart were used in this project.
 
 ## Data 
