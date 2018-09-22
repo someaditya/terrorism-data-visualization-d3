@@ -147,9 +147,9 @@ d3.csv("data/datafinal.csv", function(d) {
     .enter().append("rect")
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.iyear); })
-      .attr("y", function(d) { return y(d.nkill); })
+      .attr("y", function(d) { return y(d.nkill+d.nwound); })
       .attr("width", x.bandwidth())
-      .attr("height", function(d) { return height - y(d.nkill); });
+      .attr("height", function(d) { return height - y(d.nkill+d.nwound); });
 });
 
 }
