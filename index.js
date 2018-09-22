@@ -117,6 +117,7 @@ d3.csv("data/datafinal.csv", function(d) {
  
  if (d.iyear>=low && d.iyear<=high) {
     d.nkill = +d.nkill;
+    d.nwound = +d.nwound;
     return d;
   }
   
@@ -124,7 +125,7 @@ d3.csv("data/datafinal.csv", function(d) {
   if (error) throw error;
 
   x.domain(data.map(function(d) { return d.iyear; }));
-  y.domain([0, d3.max(data, function(d) { return d.nkill; })]);
+  y.domain([0, d3.max(data, function(d) { return (d.nkill+d.nwound); })]);
 
   g.append("g")
       .attr("class", "axis axis--x")
