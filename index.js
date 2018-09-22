@@ -351,17 +351,18 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
   var data = d3.nest()
     .key(function(d) { return d.iyear;})
     .rollup(function(d) { 
-    return d3.sum(d, function(g) {
-      //console.log("Killed "+g.nkill);
-      return parseInt(g.nkill); });
+    return {
+      kill: d3.sum(d, function(g) {return parseInt(g.nkill); }),
+      wound: d3.sum(d, function(g) {return parseInt(g.nwound); });
+     };
     })
     .entries(csv_data);
-  
+  console.log(JSON.stringify(data));
   // format the data
   data.forEach(function(d) {
       d.iyear = d.key;
-      d.nkill = d.value;
-      d.nwound = +parseInt(d.nwound);
+      d.nkill = d.value[kill];
+      d.nwound = d.value[wound];
       //console.log(d.nkill)
   });
   
