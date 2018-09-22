@@ -342,7 +342,7 @@ d3.csv("data/datafinal.csv", function(error, data) {
 
   // format the data
   data.forEach(function(d) {
-      //d.iyear = parseInt(d.iyear);
+      d.iyear = parseInt(d.iyear);
       d.nkill = +parseInt(d.nkill);
       d.nwound = +parseInt(d.nwound);
       //console.log(d.nkill)
@@ -350,9 +350,11 @@ d3.csv("data/datafinal.csv", function(error, data) {
   
 
   // Scale the range of the data
-  x.domain(data.map(function(d) { return d.iyear; }));
+  x.domain(data.extent(function(d) { return d.iyear; }));
   y.domain([0, d3.max(data, function(d) { return d.nkill; })]);
 
+
+  
     // Add the X Axis
   svg2.append("g")
       .attr("transform", "translate(0," + height + ")")
