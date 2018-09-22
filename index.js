@@ -29,7 +29,7 @@ function showHeatmap(low,high)
 
 var array = [];
 map.removeLayer(heat);
-d3.csv("http://localhost/datafinal.csv", function(data) {
+d3.csv("datafinal.csv", function(data) {
 
 //console.log(data)
 //
