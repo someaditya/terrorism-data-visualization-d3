@@ -126,7 +126,7 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
   data.forEach(function(d) {
   d.iyear = d.key;
   //console.log("Year"+d.iyear);
-  d.kills = d.values;
+  d.kills = d.value;
   //console.log("Kills"+d.values);
   });
 
