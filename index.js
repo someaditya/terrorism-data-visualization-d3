@@ -118,15 +118,16 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
     .key(function(d) { return d.iyear;})
     .rollup(function(d) { 
     return d3.sum(d, function(g) {
-      console.log("Killed "+g.nkill);
+      //console.log("Killed "+g.nkill);
       return parseInt(g.nkill); });
-    }).entries(csv_data);
-  
+    })
+    .entries(csv_data);
+  console.log(JSON.stringify(data));
   data.forEach(function(d) {
   d.iyear = d.key;
-  console.log("Year"+d.iyear);
+  //console.log("Year"+d.iyear);
   d.kills = d.values;
-  console.log("Kills"+d.values);
+  //console.log("Kills"+d.values);
   });
 
   x.domain(data.map(function(d) { return d.iyear; }));
