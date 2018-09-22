@@ -124,11 +124,16 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
     })
     .entries(csv_data);
   console.log(JSON.stringify(data));
+  
   data.forEach(function(d) {
+  if (d.key>=low && d.key<=high) 
+   {
+  
   d.iyear = d.key;
   //console.log("Year"+d.iyear);
   d.kills = d.value["kill"]+d.value["wound"];
   //console.log("Kills"+d.values);
+   }
   });
 
   x.domain(data.map(function(d) { return d.iyear; }));
@@ -314,7 +319,7 @@ function linechart()
 
 
 var margin = {top: 20, right: 20, bottom: 30, left: 50},
-    width = 1450 - margin.left - margin.right,
+    width = 1400 - margin.left - margin.right,
     height = 720 - margin.top - margin.bottom;
 
 // parse the date / time
