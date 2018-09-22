@@ -403,6 +403,12 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
       .attr("class", "line")
       .attr("d", valueline2);
 
+  valueline.append('text')
+             .attr('class', 'barsEndlineText')
+             .attr('text-anchor', 'middle')
+              .attr("x", 0)
+             .attr("y", ".35em")
+             .text('I am label')
 
 
 
