@@ -122,11 +122,13 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
   
   data.forEach(function(d) {
  d.iyear = d.key;
- d.nkill = d.nkill;
+ console.log(d.iyear);
+ d.kills = d.nkill;
+ console.log(d.iyear);
 });
 
   x.domain(data.map(function(d) { return d.iyear; }));
-  y.domain([0, d3.max(data, function(d) { return (d.nkill); })]);
+  y.domain([0, d3.max(data, function(d) { return (d.kills); })]);
 
   g.append("g")
       .attr("class", "axis axis--x")
@@ -148,9 +150,9 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
     .enter().append("rect")
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.iyear); })
-      .attr("y", function(d) { return y(d.nkill); })
+      .attr("y", function(d) { return y(d.kills); })
       .attr("width", x.bandwidth())
-      .attr("height", function(d) { return height - y(d.nkill+d.nwound); });
+      .attr("height", function(d) { return height - y(d.kills); });
 
 });
 }
