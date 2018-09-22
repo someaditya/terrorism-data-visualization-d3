@@ -369,7 +369,7 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
 
   // Scale the range of the data
   x.domain(data.map(function(d) { return d.iyear; }));
-  y.domain([0, d3.max(data, function(d) { return d.nkill; })]);
+  y.domain([0, d3.max(data, function(d) { return d.nwound; })]);
 
 
   
@@ -391,14 +391,14 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
   
   
   svg2.append("text")
-    .attr("transform", "translate(" + (width+3) + "," + y(data.nkill) + ")")
+    .attr("transform", "translate(" + (width+3) + "," + y(data[0].nkill) + ")")
     .attr("dy", ".35em")
     .attr("text-anchor", "start")
     .style("fill", "red")
     .text("Killed");
 
   svg2.append("text")
-    .attr("transform", "translate(" + (width+3) + "," + y(data.nwound) + ")")
+    .attr("transform", "translate(" + (width+3) + "," + y(data[0].nwound) + ")")
     .attr("dy", ".35em")
     .attr("text-anchor", "start")
     .style("fill", "steelblue")
