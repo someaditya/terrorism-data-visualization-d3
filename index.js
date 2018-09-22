@@ -350,7 +350,7 @@ d3.csv("data/datafinal.csv", function(error, data) {
   
 
   // Scale the range of the data
-  x.domain(data.extent(function(d) { return d.iyear; }));
+  x.domain(data.Map(function(d) { return d.iyear; }));
   y.domain([0, d3.max(data, function(d) { return d.nkill; })]);
 
 
