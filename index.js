@@ -343,14 +343,24 @@ var svg2 = d3.select("body").append("svg")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Get the data
-d3.csv("data/datafinal.csv", function(error, data) {
-  if (error) throw error;
   
 
+d3.csv("data/datafinal.csv", function(error, csv_data) {
+  if (error) throw error;
+  
+  var data = d3.nest()
+    .key(function(d) { return d.iyear;})
+    .rollup(function(d) { 
+    return d3.sum(d, function(g) {
+      //console.log("Killed "+g.nkill);
+      return parseInt(g.nkill); });
+    })
+    .entries(csv_data);
+  
   // format the data
   data.forEach(function(d) {
-      d.iyear = parseInt(d.iyear);
-      d.nkill = +parseInt(d.nkill);
+      d.iyear = d.key;
+      d.nkill = d.value;
       d.nwound = +parseInt(d.nwound);
       //console.log(d.nkill)
   });
