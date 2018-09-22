@@ -384,14 +384,14 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
   
   
   svg2.append("text")
-    .attr("transform", "translate(" + (width+3) + "," + y(data[0].nkill) + ")")
+    .attr("transform", "translate(" + (width+3) + "," + y(data.nkill) + ")")
     .attr("dy", ".35em")
     .attr("text-anchor", "start")
     .style("fill", "red")
     .text("Killed");
 
   svg2.append("text")
-    .attr("transform", "translate(" + (width+3) + "," + y(data[0].nwound) + ")")
+    .attr("transform", "translate(" + (width+3) + "," + y(data.nwound) + ")")
     .attr("dy", ".35em")
     .attr("text-anchor", "start")
     .style("fill", "steelblue")
