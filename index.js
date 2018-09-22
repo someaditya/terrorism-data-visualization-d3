@@ -29,7 +29,7 @@ function showHeatmap(low,high)
 
 var array = [];
 map.removeLayer(heat);
-d3.csv("datafinal.csv", function(data) {
+d3.csv("data/datafinal.csv", function(data) {
 
 //console.log(data)
 //
@@ -113,7 +113,7 @@ var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
 var g = svg1.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("datafinal.csv", function(d) {
+d3.csv("data/datafinal.csv", function(d) {
  
  if (d.iyear>=low && d.iyear<=high) {
     //d.nkill = +d.nkill;
@@ -336,7 +336,7 @@ var svg2 = d3.select("body").append("svg")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Get the data
-d3.csv("datafinal.csv", function(error, data) {
+d3.csv("data/datafinal.csv", function(error, data) {
   if (error) throw error;
   
 
@@ -424,7 +424,7 @@ var sankey = d3.sankey()
 var path = sankey.link();
 
 // load the data
-d3.csv("datafinal.csv", function(error, data) {
+d3.csv("data/datafinal.csv", function(error, data) {
  
   //set up graph in same style as original example but empty
   graph = {"nodes" : [], "links" : []};
