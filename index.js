@@ -117,7 +117,7 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
     var data = d3.nest()
     .key(function(d) { return d.iyear;})
     .rollup(function(d) { 
-    return d3.sum(d, function(g) {return g.nkill; });
+    return d3.sum(d, function(g) {return parseInt(g.nkill); });
     }).entries(csv_data);
   
   data.forEach(function(d) {
