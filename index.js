@@ -146,7 +146,7 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
       .attr("y", 6)
       .attr("dy", "0.71em")
       .attr("text-anchor", "end")
-      .text("Frequency");
+      .text("Fatalities");
 
   g.selectAll(".bar")
     .data(data)
