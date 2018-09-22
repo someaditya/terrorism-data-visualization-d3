@@ -361,8 +361,8 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
   // format the data
   data.forEach(function(d) {
       d.iyear = d.key;
-      d.nkill = d.value[kill];
-      d.nwound = d.value[wound];
+      d.nkill = d.value["kill"];
+      d.nwound = d.value["wound"];
       //console.log(d.nkill)
   });
   
