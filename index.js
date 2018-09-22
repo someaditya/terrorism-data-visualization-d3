@@ -313,7 +313,7 @@ var margin = {top: 20, right: 20, bottom: 30, left: 50},
 var parseTime = d3.timeParse("%d-%b-%y");
 
 // set the ranges
-var x = x = d3.scaleBand().rangeRound([0, width]).padding(0.1);
+var x = d3.scaleBand().rangeRound([0, width]).padding(0.1);
 var y = d3.scaleLinear().range([height, 0]);
 
 // define the line
@@ -353,19 +353,7 @@ d3.csv("data/datafinal.csv", function(error, data) {
   x.domain(data.map(function(d) { return d.iyear; }));
   y.domain([0, d3.max(data, function(d) { return d.nkill; })]);
 
-  // Add the valueline path.
-  svg2.append("path")
-      .data([data])
-      .attr("class", "line")
-      .attr("d", valueline);
-
-  svg2.append("path")
-      .data([data])
-      .style("stroke", "red")
-      .attr("class", "line")
-      .attr("d", valueline2);
-
-  // Add the X Axis
+    // Add the X Axis
   svg2.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
@@ -373,7 +361,8 @@ d3.csv("data/datafinal.csv", function(error, data) {
   // Add the Y Axis
   svg2.append("g")
       .call(d3.axisLeft(y));
-
+  
+  
   svg2.append("text")
     .attr("transform", "translate(" + (width+3) + "," + y(data[0].nkill) + ")")
     .attr("dy", ".35em")
@@ -387,6 +376,21 @@ d3.csv("data/datafinal.csv", function(error, data) {
     .attr("text-anchor", "start")
     .style("fill", "steelblue")
     .text("Wounded");
+  
+  // Add the valueline path.
+  svg2.append("path")
+      .data([data])
+      .attr("class", "line")
+      .attr("d", valueline);
+
+  svg2.append("path")
+      .data([data])
+      .style("stroke", "red")
+      .attr("class", "line")
+      .attr("d", valueline2);
+
+
+
 
 });
 
