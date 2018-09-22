@@ -389,20 +389,7 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
        .attr("text-anchor", "end")
        .text("Fatalities");
   
-  
-  svg2.append("text")
-    .attr("transform", "translate(" + (width+3) + "," + y(data[0].nkill) + ")")
-    .attr("dy", ".35em")
-    .attr("text-anchor", "start")
-    .style("fill", "red")
-    .text("Killed");
 
-  svg2.append("text")
-    .attr("transform", "translate(" + (width+3) + "," + y(data[100].nwound) + ")")
-    .attr("dy", ".35em")
-    .attr("text-anchor", "start")
-    .style("fill", "steelblue")
-    .text("Wounded");
   
   // Add the valueline path.
   svg2.append("path")
