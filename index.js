@@ -113,13 +113,12 @@ var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
 var g = svg1.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("data/datafinal.csv", function(d) {
+d3.csv("data/datafinal.csv", function(d) { 
  
- if (d.iyear>=low && d.iyear<=high) {
-    d.nkill = +d.nkill;
-    d.nwound = +d.nwound;
+    d.nkill = +parseInt(d.nkill);
+    d.nwound = +parseInt(d.nwound);
     return d;
-  }
+  
   
 }, function(error, data) {
   if (error) throw error;
@@ -149,7 +148,7 @@ d3.csv("data/datafinal.csv", function(d) {
       .attr("x", function(d) { return x(d.iyear); })
       .attr("y", function(d) { return y(d.nkill+d.nwound); })
       .attr("width", x.bandwidth())
-      .attr("height", function(d) { return y(d.nkill+d.nwound); });
+      .attr("height", function(d) { return height - y(d.nkill+d.nwound); });
 });
 
 }
