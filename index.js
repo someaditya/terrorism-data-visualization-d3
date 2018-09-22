@@ -314,7 +314,7 @@ function linechart()
 
 
 var margin = {top: 20, right: 20, bottom: 30, left: 50},
-    width = 1400 - margin.left - margin.right,
+    width = 1450 - margin.left - margin.right,
     height = 720 - margin.top - margin.bottom;
 
 // parse the date / time
