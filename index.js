@@ -113,18 +113,17 @@ var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
 var g = svg1.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("data/datafinal.csv", function(d) { 
- 
-    d.nkill = +parseInt(d.nkill);
-    d.nwound = +parseInt(d.nwound);
-    return d;
-  
-  
-}, function(error, data) {
-  if (error) throw error;
+d3.csv("data/datafinal.csv", function(error, csv_data) { 
+    var data = d3.nest()
+    .key(function(d) { return d.iyear;})
+    .rollup(function(d) { 
+    return d3.sum(d, function(g) {return g.nkill; });
+    }).entries(csv_data);
+    return d;    
+}
 
   x.domain(data.map(function(d) { return d.iyear; }));
-  y.domain([0, d3.max(data, function(d) { return (d.nkill+d.nwound); })]);
+  y.domain([0, d3.max(data, function(d) { return (d.nkill); })]);
 
   g.append("g")
       .attr("class", "axis axis--x")
@@ -146,10 +145,10 @@ d3.csv("data/datafinal.csv", function(d) {
     .enter().append("rect")
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.iyear); })
-      .attr("y", function(d) { return y(d.nkill+d.nwound); })
+      .attr("y", function(d) { return y(d.nkill); })
       .attr("width", x.bandwidth())
       .attr("height", function(d) { return height - y(d.nkill+d.nwound); });
-});
+
 
 }
 
