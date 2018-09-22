@@ -115,7 +115,10 @@ var g = svg1.append("g")
 
 d3.csv("data/datafinal.csv", function(error, csv_data) { 
     var data = d3.nest()
-    .key(function(d) { return d.iyear;})
+    .key(function(d) { 
+	    if (data.iyear>=low && data.iyear<=high) 
+  	    {
+	    return d.iyear;}})
     .rollup(function(d) { 
      return {
       kill: d3.sum(d, function(g) {return parseInt(g.nkill); }),
@@ -125,15 +128,11 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
     .entries(csv_data);
   console.log(JSON.stringify(data));
   
-  data.forEach(function(d) {
-  if (data.iyear>=low && data.iyear<=high) 
-   {
-  
+  data.forEach(function(d) { 
   d.iyear = d.key;
   //console.log("Year"+d.iyear);
   d.kills = d.value["kill"]+d.value["wound"];
-  //console.log("Kills"+d.values);
-   }
+  //console.log("Kills"+d.values)
   });
 
   x.domain(data.map(function(d) { return d.iyear; }));
