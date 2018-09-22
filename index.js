@@ -121,11 +121,11 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
     }).entries(csv_data);
   
   data.forEach(function(d) {
- d.iyear = d.key;
- console.log(d.iyear);
- d.kills = d.nkill;
- console.log(d.kills);
-});
+  d.iyear = d.key;
+  console.log("Year"+d.iyear);
+  d.kills = d.values;
+  console.log("Kills"+d.kills);
+  });
 
   x.domain(data.map(function(d) { return d.iyear; }));
   y.domain([0, d3.max(data, function(d) { return (d.kills); })]);
