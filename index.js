@@ -119,6 +119,11 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
     .rollup(function(d) { 
     return d3.sum(d, function(g) {return g.nkill; });
     }).entries(csv_data);
+  
+  data.forEach(function(d) {
+ d.iyear = d.key;
+ d.nkill = d.nkill;
+});
 
   x.domain(data.map(function(d) { return d.iyear; }));
   y.domain([0, d3.max(data, function(d) { return (d.nkill); })]);
