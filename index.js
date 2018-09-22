@@ -353,7 +353,7 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
     .rollup(function(d) { 
     return {
       kill: d3.sum(d, function(g) {return parseInt(g.nkill); }),
-      wound: d3.sum(d, function(g) {return parseInt(g.nwound); });
+      wound: d3.sum(d, function(g) {return parseInt(g.nwound); })
      };
     })
     .entries(csv_data);
