@@ -380,7 +380,14 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
 
   // Add the Y Axis
   svg2.append("g")
-      .call(d3.axisLeft(y));
+       .call(d3.axisLeft(y))
+       .append("text")
+        .attr("fill", "#000")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", "0.71em")
+       .attr("text-anchor", "end")
+       .text("Fatalities");
   
   
   svg2.append("text")
