@@ -116,7 +116,7 @@ var g = svg1.append("g")
 d3.csv("data/datafinal.csv", function(d) {
  
  if (d.iyear>=low && d.iyear<=high) {
-    //d.nkill = +d.nkill;
+    d.nkill = +d.nkill;
     return d;
   }
   
@@ -124,7 +124,7 @@ d3.csv("data/datafinal.csv", function(d) {
   if (error) throw error;
 
   x.domain(data.map(function(d) { return d.iyear; }));
-  y.domain([0, d3.max(data, function(d) { return d.nkill+d.nwound; })]);
+  y.domain([0, d3.max(data, function(d) { return d.nkill; })]);
 
   g.append("g")
       .attr("class", "axis axis--x")
