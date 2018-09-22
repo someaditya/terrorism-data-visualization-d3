@@ -117,16 +117,17 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
     var data = d3.nest()
     .key(function(d) { return d.iyear;})
     .rollup(function(d) { 
-    return d3.sum(d, function(g) {
-      //console.log("Killed "+g.nkill);
-      return parseInt(g.nkill); });
+     return {
+      kill: d3.sum(d, function(g) {return parseInt(g.nkill); }),
+      wound: d3.sum(d, function(g) {return parseInt(g.nwound); })
+     };
     })
     .entries(csv_data);
   console.log(JSON.stringify(data));
   data.forEach(function(d) {
   d.iyear = d.key;
   //console.log("Year"+d.iyear);
-  d.kills = d.value;
+  d.kills = d.value["kill"]+d.value["wound"];
   //console.log("Kills"+d.values);
   });
 
@@ -408,14 +409,14 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
 		.attr("dy", ".35em")
 		.attr("text-anchor", "start")
 		.style("fill", "red")
-		.text("Open");
+		.text("Killed");
 
 	svg2.append("text")
 		.attr("transform", "translate(" + (width+3) + "," + y(data[0].nwound) + ")")
 		.attr("dy", ".35em")
 		.attr("text-anchor", "start")
 		.style("fill", "steelblue")
-		.text("Close");
+		.text("Wounded");
 
 
 
