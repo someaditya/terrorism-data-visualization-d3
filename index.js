@@ -124,7 +124,7 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
  d.iyear = d.key;
  console.log(d.iyear);
  d.kills = d.nkill;
- console.log(d.iyear);
+ console.log(d.kills);
 });
 
   x.domain(data.map(function(d) { return d.iyear; }));
