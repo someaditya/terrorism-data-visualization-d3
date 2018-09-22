@@ -126,7 +126,7 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
   console.log(JSON.stringify(data));
   
   data.forEach(function(d) {
-  if (d.key>=low && d.key<=high) 
+  if (data.iyear>=low && data.iyear<=high) 
    {
   
   d.iyear = d.key;
