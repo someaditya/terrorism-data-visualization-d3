@@ -192,7 +192,7 @@ d3.csv("data/datafinal.csv", function(error, csv_data) {
       .attr("x", function(d) { return x(d.iyear); })
       .attr("y", function(d) { return y(d.kills); })
       .attr("width", x.bandwidth())
-      .attr("height", function(d) { return height - y(d.kills); });
+      .attr("height", function(d) { return height - y(d.kills); })
       .style({fill: randomColor});
 });
 }
